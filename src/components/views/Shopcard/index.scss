@@ -1,0 +1,67 @@
+#shopCart{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  font-size:0.13rem;
+  background: #f1f1f1;
+  // 后退
+  .header{
+    height:0.36rem;
+    line-height: 0.36rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    font-size:0.16rem;
+    .head_back_box{
+      width:0.4rem;
+      text-align: center;
+      .icon-fanhui{
+        font-size:0.16rem;
+        color: #b4b4b4;
+      }
+    }
+    .head_home{
+      width:0.5rem;
+      text-align: center;
+      .icon-Home{
+        font-size:0.20rem;
+        color: #b4b4b4;
+      }
+    }
+  }
+  // 无商品提示
+  .cart_no_goods{
+    flex: 1;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    display: none;
+    .oops{
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background:url();
+      background: #cecece;
+    }
+    .empty_cart{
+      margin-top: 0.16rem;
+    }
+    .go_stroll{
+      width: 1.2rem;
+      height: 0.40rem;
+      line-height:0.40rem; 
+      border-radius: 1.25rem;
+      color: #fff;
+      background: #fe4070;
+      text-align: center;
+      margin-top: 0.20rem;
+    }
+  }
+  // 商品列表
+}
