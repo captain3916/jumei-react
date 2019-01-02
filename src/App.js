@@ -5,6 +5,7 @@ class App extends Component {
     return (
       <div>
         App
+        虢宁东
       </div>
     )
   }
