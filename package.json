@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "antd-mobile": "^2.2.8",
+    "axios": "^0.18.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router": "^4.3.1",
-    "react-scripts": "2.1.1"
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,6 +27,7 @@
   ],
   "devDependencies": {
     "babel-plugin-import": "^1.11.0",
+    "node-sass": "^4.11.0",
     "react-app-rewired": "^1.6.2"
   }
 }
