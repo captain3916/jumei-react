@@ -27,6 +27,7 @@ class Index extends Component {
   render() {
     return (
       <div className="Index">
+        <div style={{height:'0.45rem',fontSize:'0.13rem',}}>搜索</div>
         <IndexTab tabs={this.state.indexTab}></IndexTab>
 
         <Switch>

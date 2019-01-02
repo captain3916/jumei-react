@@ -1,6 +1,9 @@
 .index-bar{
   height: 0.44rem;
   background: #fff;
+  position: sticky;
+  z-index: 999;
+  top: 0;
   // display: flex;
   &-item{
     // flex: 1;
@@ -25,6 +28,7 @@
           display: block;
           position: absolute;
           bottom: 0rem;
+          right: 0.001rem;
         }
       }
     }

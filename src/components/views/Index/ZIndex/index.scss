@@ -18,5 +18,50 @@
   .hidden{
     display: none;
   }
+  .settle-list {
+    .item-each{
+      height: 1.3rem;
+      margin-bottom: 0.08rem;
+      img{
+        height: 100%;
+      }
+    }
+    .deal-item{
+      position: relative;
+      .product-img{
+        height: 100%;
+        img{
+          height: 100%;
+        }
+      }
+      .product-detail{
+        position: absolute;
+        top: 0;
+        left: 0;
+        // margin-right: 0.64rem;
+        margin-left: 1.53333rem;
+        height: 100%;
+        width: 2.03rem;
+        .product-title{
+          font-size: 0.13rem;
+          margin-top: 0.12rem;
+        }
+        .price-wrap{
+          font-size: 0.14rem;
+          margin-top: 0.3rem;
+          .jumei-price{
+            font-size: 0.16rem;
+            color: #fe4070;
+          }
+          .del-price{
+            font-size: 0.12rem;
+            color: #999;
+            text-decoration: line-through;
+          }
+        }
+      }
+    }
+  }
+  
 }
 
