@@ -1,0 +1,6 @@
+html,body,ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6,header,main,footer,section,aside,article{
+    margin: 0;padding: 0;display: block;box-sizing: border-box;-webkit-box-sizing: border-box;
+}
+ul li{list-style: none;}
+a{ text-decoration: none;}
+fieldset,img,input,button { border:0 none; padding:0;margin:0;outline-style:none; }
