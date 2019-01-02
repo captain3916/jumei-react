@@ -1,0 +1,142 @@
+#wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  font-size:0.13rem;
+  background: #f1f1f1;
+}
+// 登录注册
+.user_unlogin{
+  box-sizing: border-box;
+  padding-top: 0.5rem;
+  width: 100%;
+  height:1.58rem;
+  background-image: -webkit-linear-gradient(294deg,#fd465f 0,#fc5e9f 100%);
+  background-image: linear-gradient(-204deg,#fd465f 0,#fc5e9f 100%);
+  .user_pic{
+    background:#fff;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-size: 0.6rem;
+    margin: auto;
+  }
+  .operation{
+    display: flex;
+    padding: 0.1rem;
+    width: 2rem;
+    margin: auto;
+    a{
+      line-height: 0.25rem;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.18rem;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      width: 0.95rem;
+    }
+    .separator{
+      background: #fff;
+      width: 0.01rem;
+      height: 0.15rem;
+      margin-top:0.04rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+// 图标公共样式
+.block_title_icon{
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.24rem;
+  margin-right: 0.10rem;
+}
+.block_title_nav{
+  float: right;
+  text-decoration: none;
+  color: #999;
+  font-size: 0.12rem;
+  margin-right: 0.05rem;
+}
+// 订单/资产/ 共用样式
+.block{
+  background: #fff;
+  margin-top: 0.12rem;
+  .block_title{
+    padding-left: 0.08rem;
+    border-bottom: 0.01rem solid #eaeaea;
+    height: 0.34rem;
+    line-height: 0.34rem;
+    font-size: 0.13rem;
+    .block_title_nav{
+      float: right;
+      text-decoration: none;
+      color: #999;
+      font-size: 0.12rem;
+      margin-right: 0.05rem;
+    }
+  }
+  .block_content{
+    display: flex;
+    .block_item{
+      flex: 1;
+      text-align: center;
+      display: inline-block;
+      margin: 0;
+      padding: 0.10rem 0;
+      text-decoration: none;
+      font-size: 0.12rem;
+      color: #666;
+      i{
+        display: block;
+        font-size:0.26rem;
+        margin: 0.05rem auto;
+        background-size: 0.24rem;
+      }
+    }
+  }
+}
+// 其他菜单
+.list_item{
+  display: block;
+  text-decoration: none;
+  color: #333;
+  padding-left: 0.08rem;
+  border-bottom: 0.01rem solid #eaeaea;
+  height: 0.34rem;
+  line-height: 0.34rem;
+  .icon-service{
+    font-size:0.28rem; 
+  }
+  .icon-yijianfankui{
+    font-size:0.26rem; 
+  }
+  .icon-daishouhuo1{
+    padding-left:0.04rem;
+    font-size:0.20rem;
+  }
+  .icon-tuichu{
+    padding-left:0.04rem;
+    font-size:0.22rem;
+  }
+  .icon-weibiaoti-{
+    padding-left:0.02rem;
+    font-size:0.24rem;
+  }
+  .arrow_right{
+    float: right;
+    // margin-top: 0.06rem;
+    margin-right: 0.06rem;
+  }
+}
+// 备注
+.hint{
+  color: #999;
+  font-size: 0.11rem;
+  margin: 0.15rem;
+  line-height: 0.15rem;
+}
