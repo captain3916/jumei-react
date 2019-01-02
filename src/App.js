@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div>
         App
-        虢宁东 qin
+        虢宁东 qin zeng
       </div>
     )
   }
