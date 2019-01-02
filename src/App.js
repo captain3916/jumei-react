@@ -6,6 +6,7 @@ class App extends Component {
       <div>
         App
         虢宁东
+        <h1>diandong</h1>
       </div>
     )
   }
