@@ -1,0 +1,26 @@
+.gnd-tabbar{
+  width: 100vw;
+  display: flex;
+  height: 0.49rem;
+  li{
+    flex: 1;
+    a{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: rgb(153, 153, 153);
+      justify-content: space-around;
+      &.active{
+        color:rgb(254, 64, 112);
+      }
+      i{
+        font-size: 0.2rem;
+        margin-top: 0.05rem;
+      }
+      span{
+        font-size: 0.12rem;
+      }
+    }
+  }
+}
