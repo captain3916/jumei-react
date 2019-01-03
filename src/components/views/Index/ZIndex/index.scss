@@ -28,23 +28,28 @@
     }
     .deal-item{
       position: relative;
+      a{
+        color: #999;
+      }
       .product-img{
+        width: 100%;
         height: 100%;
         img{
+          width: 100%;
           height: 100%;
         }
       }
       .product-detail{
         position: absolute;
         top: 0;
-        left: 0;
-        // margin-right: 0.64rem;
-        margin-left: 1.53333rem;
+        right: 0.15rem;
         height: 100%;
         width: 2.03rem;
         .product-title{
           font-size: 0.13rem;
           margin-top: 0.12rem;
+          color: #333;
+          word-wrap: break-word;
         }
         .price-wrap{
           font-size: 0.14rem;
@@ -55,8 +60,9 @@
           }
           .del-price{
             font-size: 0.12rem;
-            color: #999;
+            
             text-decoration: line-through;
+            
           }
         }
       }
