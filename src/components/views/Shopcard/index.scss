@@ -14,12 +14,12 @@
     width: 100%;
     border-bottom: 1px solid #eee;
     background: #fff;
-    font-size:0.16rem;
+    font-size:0.15rem;
     .head_back_box{
       width:0.4rem;
       text-align: center;
       .icon-fanhui{
-        font-size:0.16rem;
+        font-size:0.18rem;
         color: #b4b4b4;
       }
     }
@@ -27,7 +27,7 @@
       width:0.5rem;
       text-align: center;
       .icon-Home{
-        font-size:0.20rem;
+        font-size:0.22rem;
         color: #b4b4b4;
       }
     }
@@ -63,5 +63,217 @@
       margin-top: 0.20rem;
     }
   }
+  // 共用样式/color/check_box_checked/iconfont...
+  .red{color: #fe4070;}
+  .check_box_checked{
+    display: block;
+    width: 0.25rem;
+    text-align: center;
+  }
+  .icon-weigouxuan{
+    color: #ccc; 
+  }
+  .icon-gouxuan1{
+    color: #fe4070;
+  }
+
   // 商品列表
+  .shop_list{
+    
+    .count_down{
+      display: flex;
+      align-items: center;
+      padding: 0.04rem;
+      height:0.22rem;
+      color: #fe4070;
+      font-size: 0.12rem;
+      background: #fff;
+
+      .clock_msg{
+        color: #999;
+        padding-left:0.04rem;
+        white-space: nowrap;
+        text-overflow:ellipsis;
+        overflow:hidden;
+      }
+    }
+    .groups{
+      margin-top:0.04rem;
+      .group{
+        margin-bottom: .05rem;
+        background: #fff;
+        // 1
+        .group_header{
+          position: relative;
+          background: #fff;
+          height: 0.35rem;
+          line-height: 0.35rem;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+          align-items: center;
+          padding-left: .05rem;
+          border-bottom: 1px #eee solid;
+          .check_box_checked{
+            display: block;
+            width: 0.25rem;
+            text-align: center;
+            margin-right: 0.06rem;
+          }
+          .group_title{
+            font-size:0.12rem;
+          }
+        }
+        // 2
+        .group_content{
+
+          .item{
+            overflow: hidden;
+            height: 0.9rem;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 0 .075rem 0 .088rem;
+            border-bottom: 1px #eee solid;
+            .check_box_checked{
+              width: 0.2rem;
+              height: 0.2rem;
+              margin-top: 10%;
+            }
+            .item_content{
+              display: flex;
+              align-items: center;
+              .img_wrap{
+                width: 0.72rem;
+                height: 0.72rem;
+                img{
+                  width: 100%;
+                }
+              }
+              .text_wrap{
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                margin-left: .0625rem;
+                margin-top: .05rem;
+                -ms-flex: 1;
+                flex: 1;
+                .title{
+                  display: -webkit-box;
+                  width: 2rem;
+                  height: 0.25rem;
+                  text-overflow: ellipsis;
+                  overflow: hidden;
+                  color: #333;
+                  line-height: 0.25rem;
+                  text-align: left;
+                  -webkit-line-clamp: 2;
+                  word-break: break-all;
+                }
+                .sub_title{
+                  display: flex;
+                  justify-content:space-between;
+                  margin-top: .02rem;
+                  line-height: .22rem;
+                  font-size:0.12rem;
+                  height: .22rem;
+                  color: #999;
+                  .sun{
+                    width: 0.6rem;
+                    height: 0.22rem;
+                    line-height: 0.22rem;
+                    .jian{
+                      text-align: center;
+                      width: 0.22rem;
+                      height: 0.22rem;
+                      padding-left:0.08rem;
+                    }
+                    .jia{
+                      text-align: center;
+                      width: 0.22rem;
+                      height: 0.22rem;
+                      padding-right:0.08rem;
+
+                    } 
+                  }
+                  
+                }
+                .price_edit{
+                  margin-top: .04rem;
+                  display: -ms-flexbox;
+                  display: flex;
+                  -ms-flex-pack: justify;
+                  justify-content: space-between;
+                  -ms-flex-align: center;
+                  align-items: center;
+                  height: 0.18rem;
+                }
+              }
+            }
+          }
+        }
+        // 3
+        .group_tail{
+          position: relative;
+          background: #fff;
+          height: 0.35rem;
+          line-height: 0.35rem;
+          display: -ms-flexbox;
+          display: flex;
+          -ms-flex-align: center;
+          align-items: center;
+          padding-left: .05rem;
+          border-bottom: 1px #eee solid;
+          .icon{
+            margin-right:0.04rem;
+          }
+        }
+      }
+    }
+  }
+  // 结算按钮
+  .submit_bottom{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 0.15625rem #eee;
+    height:0.4rem;
+    display: -ms-flexbox;
+    display: flex;
+    background: #fff;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0 .075rem 0 .05rem;
+    z-index: 1;
+    .sub_info{
+      display: flex;
+      align-items: center;
+      .all_check_text{
+        font-size: .10rem;
+        color: #333;
+        margin-left: .06rem;
+      }
+      .summary{
+        display: flex;
+        align-items: center;
+        margin-left: .06rem;
+        color: #999;
+        .red{
+          font-size: 0.16rem;
+          margin-left: 0.04rem;
+        }
+      }
+    }
+    .submit_btn{
+      width:1rem;
+      height: 0.3rem;
+      line-height: 0.3rem;
+      text-align: center;
+      background: #fe4070;
+      color: #fff;
+      border-radius: 0.3rem;
+    }
+  }
 }
