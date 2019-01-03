@@ -8,4 +8,39 @@
     padding: 0 .15rem;
     border-bottom: .01rem solid #eee;
   }
+  .prod_detail{
+    height: .73rem;
+    display: flex;
+    flex-direction: column;
+     padding:0 .1rem;
+
+    .price_info{
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      align-items: center;
+     
+    }
+    .count_down{
+      flex: 1;
+    }
+
+  }
+  .additional-info{
+    height: 1.54rem;
+    padding: 0 .1rem;
+    .postage-wrap{
+      display: flex;
+      height: .37rem;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: .01rem solid #eee;
+      .postage-type{
+        width: .77rem;
+      }
+
+    }
+  }
+
 }
