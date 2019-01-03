@@ -1,14 +1,15 @@
-#wrapper{
+.wrapper{
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100%;
+  // height: 100%;
   font-size:0.13rem;
   background: #f1f1f1;
 }
 // 后退
 .header{
   position: absolute;
+  z-index: 16;
   height:0.36rem;
   line-height: 0.36rem;
   display: flex;
@@ -35,6 +36,7 @@
 }
 // 登录注册
 .user_unlogin{
+  display: none;
   box-sizing: border-box;
   padding-top: 0.5rem;
   width: 100%;
@@ -74,7 +76,91 @@
     }
   }
 }
-
+// 已登录
+.wrapper_user{
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height:1.58rem;
+  background: #fff;
+  .photo{
+    width: 0.64rem;
+    height: 0.64rem;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    background: #eee;
+    left: 0.32rem;
+    top: 0.72rem;
+    z-index: 10;
+  }
+  .user_bg{
+    position: absolute;
+    width: 3.20rem;
+    height: 1.06rem;
+    background-image: -webkit-linear-gradient(294deg,#fd465f 0,#fc5e9f 100%);
+    background-image: linear-gradient(-204deg,#fd465f 0,#fc5e9f 100%);
+    .user_info{
+      font-size: 0.12rem;
+      color: #fff;
+      position: absolute;
+      left: 1.12rem;
+      bottom: 0.04rem;
+      .name{
+        font-family: sans-serif;
+        line-height: 20px;
+        display: block;
+        font-size: 13px;
+        letter-spacing: .65px;
+      }
+      .grade{
+        background: rgba(255,255,255,.2);
+        border-radius: 1rem;
+        letter-spacing: .0065rem;
+        line-height: 0.18rem;
+        padding: 0.03rem 0.05rem;
+      }
+    }
+  }
+  .icons{
+    width: 2.30rem;
+    height: 0.50rem;
+    position: absolute;
+    bottom: 0.02rem;
+    right: 0;
+    font-size: 0.12rem;
+    text-align: center;
+    a{
+      color: #666;
+      text-decoration: none;
+    }
+    .icon{
+      width: 0.18rem;
+      height: 0.18rem;
+      background-size: 0.17rem 0.17rem;
+      margin: 0.07rem auto;
+      background-repeat: no-repeat;
+    }
+    .wishlist{
+      display: block;
+      width: 0.76rem;
+      height: 0.50rem;
+      float: left;
+    }
+    .onsale{
+      display: block;
+      width: 0.76rem;
+      height: 0.50rem;
+      float: left;
+    }
+    .fav{
+      display: block;
+      width: 0.76rem;
+      height: 0.50rem;
+      float: left;
+    }
+  }
+}
 // 图标公共样式
 .block_title_icon{
   display: inline-block;

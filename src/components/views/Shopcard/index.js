@@ -9,7 +9,7 @@ class Shopcard extends Component {
     return (
       <div id="shopCart">
         {/* 后退 */}
-        <div class="header">
+        <div class="shopCart_header">
           <div class="head_back_box">
             <i className="iconfont icon-fanhui"></i>
           </div>

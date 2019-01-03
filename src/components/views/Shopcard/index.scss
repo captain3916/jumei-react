@@ -6,13 +6,13 @@
   font-size:0.13rem;
   background: #f1f1f1;
   // 后退
-  .header{
+  .shopCart_header{
     height:0.36rem;
     line-height: 0.36rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    border-bottom: 1px solid #eee;
+    border-bottom:0.01rem solid #eee;
     background: #fff;
     font-size:0.15rem;
     .head_back_box{
@@ -79,7 +79,8 @@
 
   // 商品列表
   .shop_list{
-    
+    flex: 1;
+    position: relative;
     .count_down{
       display: flex;
       align-items: center;
@@ -232,8 +233,8 @@
   }
   // 结算按钮
   .submit_bottom{
-    position: fixed;
-    bottom: 0;
+    position: absolute;
+    bottom: 0.49rem;
     left: 0;
     right: 0;
     box-shadow: 0 0 0.15625rem #eee;
