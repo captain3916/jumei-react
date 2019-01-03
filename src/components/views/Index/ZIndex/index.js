@@ -10,51 +10,74 @@ class ZIndex extends Component {
     super(props);
     this.state = {
       tab: {
-        current_index: 0,
+        current_index: 1,
       },
       list:[ ],
+      fy:{
+        page:1,
+        type:1,
+      }
     };
   }
 
+  // 选项卡切换
   tabClick = (num) => {
     this.setState({
+      // 切换
       tab: Object.assign(
         this.state.tab, {
           current_index: num,
         },
       ),
+      // 数据切换加载
+      fy: Object.assign(
+        this.state.fy, {
+          type: num,
+        },
+      ),
     });
+    // 数据重新请求
+    this.axiosClick();
+  }
+
+  // 后台数据请求方法
+  axiosClick = () =>  {
+    axios.get('http://129.204.109.25:3000/product/getProduct' , {
+      params:{
+        page:this.state.fy.page,
+        type:this.state.fy.type,
+      }
+    }).then((response) => {
+      //筛选出广告数据
+      let arr = response.data.data.filter((item) => {
+        return !item.label 
+      })
+      // console.log(arr);
+        this.setState({
+          list:arr,
+        })
+        console.log(this.state.list);
+    })
   }
 
   componentDidMount(){
-    axios.get('http://129.204.109.25:3000/product/getProduct?page=2&type=2' , {
-      params:{
-
-      }
-    }).then((response) => {
-      // console.log(response.data);
-        this.setState({
-          list:response.data,
-        })
-    })
+    this.axiosClick();
   }
   render() {
     const state = this.state;
     const currentIndex = state.tab.current_index;
-    const ulist = this.state.list.data;
+    const ulist = this.state.list;
+    // console.log(ulist[0]);
 
+    // 商品数据遍历
     let aLI = ulist ? 
     ulist.map(item => {
       return (
         <li className="deal-item item-each" key={item._id}>
-          <Link to={
-                {
-                  pathname:'/product',
-                  state:item,
-                }
-          }>
+          <Link to={ '/product/' + item._id }>
             <div className="product-img">
-              <img src={item.image_url_set.dx_image.url[320]} alt="" />
+              <img src={item.image_url_set.dx_image.url[800]} alt="" />
+              {/* <img src={ulist[12].image_url_set.dx_image.url[800]} alt="" /> */}
             </div>
             <div className="product-detail">
               <div className="product-title">
@@ -71,57 +94,43 @@ class ZIndex extends Component {
       )
     }) : '';
 
+
     return ( 
       <div className="settle-wrap">
         
         <ul className="settle-header">
-          <li onClick={() => this.tabClick(0)} className={currentIndex === 0 ? 'active' : ''}>
+          <li 
+            onClick={() => this.tabClick(1)}  
+            // onClick={() => this.listClick(1)}
+            className={currentIndex === 1 ? 'active' : ''}>
             今日10点上新
           </li>
-          <li onClick={() => this.tabClick(1)} className={currentIndex === 1 ? 'active' : ''}>
+          <li 
+            onClick={() => this.tabClick(2)} 
+            // onClick={() => this.listClick(2)}
+            className={currentIndex === 2 ? 'active' : ''}>
             明日10点预告
           </li>
         </ul>
 
         {/* 商品列表 */}
-        <div className={`settle-list ${currentIndex === 0 ? '' : 'hidden'}`}>
+        <div className={`settle-list ${currentIndex === 1 ? '' : 'hidden'}`}>
           
           <ul>
             {
               aLI
             }
-              
           </ul>
 
-          
-          
-
-          
         </div>
-        <div className={`settle-list ${currentIndex === 1 ? '' : 'hidden'}`}>
-          <div className="deal-item item-each">
-              <Link to={
-                {
-                  pathname:'/product',
-                  state:'hello',
-                }
-              }>
-                <div className="product-img">
-                  <img src="http://mp6.jmstatic.com/product/000/818/818484_std/818484_dx_1154_400.jpg?_t=1501409562&imageView2/2/w/800/q/90" alt="" />
-                </div>
-                <div className="product-detail">
-                  <div className="product-title">
-                    兰蔻粉水清滢柔肤水（干性）200ml，解救换季干燥肌
-                  </div>
-                  <div className="price-wrap">
-                    <span className="jumei-price">￥205</span>
-                    <span className="del-price">￥305</span>
-                    <p className="">1.2万条评论</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
-          </div>
+
+        <div className={`settle-list ${currentIndex === 2 ? '' : 'hidden'}`}>
+          <ul>
+              {
+                aLI
+              }
+          </ul>
+        </div>
       </div>
     )
   }

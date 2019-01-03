@@ -16,7 +16,7 @@ class Index extends Component {
     super(props);
     this.state = {
       indexTab: [
-        { key: 'index', href: "/index", icon: "icon-films", name: '首页' },
+        { key: 'index', href: "/index/i", icon: "icon-films", name: '首页' },
         { key: 'global', href: "/index/global", icon: "icon-cinemas", name: '极速免税店' },
         { key: 'muandbaby', href: "/index/muandbaby", icon: "icon-sales", name: '母婴' },
         { key: 'luxury', href: "/index/luxury", icon: "icon-center", name: '轻奢' },
@@ -36,6 +36,7 @@ class Index extends Component {
             <img   src="//f0.jmstatic.com/btstatic/h5/index/search_list2.png" className="search" alt="" />
           </span>
         </div>
+
         <IndexTab tabs={this.state.indexTab}></IndexTab>
 
         <Switch>
@@ -43,8 +44,8 @@ class Index extends Component {
           <Route path="/index/muandbaby" component={ZMuandbaby}></Route>
           <Route path="/index/luxury" component={ZLuxury}></Route>
           <Route path="/index/pop" component={ZPop}></Route>
-          <Route path="/index" component={ZIndex}></Route>
-          <Redirect to="/index"></Redirect>
+          <Route path="/index/i" component={ZIndex}></Route>
+          <Redirect to="/index/i"></Redirect>
         </Switch>
       </div>
     )
