@@ -61,10 +61,42 @@ export default class Details extends Component {
             </div>
 
           </div>
-          <div className='postage-wrap'>
+          <div className='postage-wrap postage-list'>
             <div className='postage-type'>说明</div>
-            <div className='postage-content'>
-              <span className='tip-word'>本商品单件包邮</span>
+            <div className='postage-content page-list'>
+              <span className='tip-word'>
+                <p>
+                  <i className='iconfont icon-xuanzhong1'></i>
+                  <span>海外直邮</span>
+                </p>
+                <p>
+                  <i className='iconfont icon-xuanzhong1'></i>
+                  <span>24小时内发货</span>
+                </p>
+
+                <p>
+                  <i className='iconfont icon-xuanzhong1'></i>
+                  <span>不支持退货</span>
+                </p>
+
+                <p>
+                  <i className='iconfont icon-xuanzhong1'></i>
+                  <span>不支持现金卷</span>
+                </p>
+
+                <p>
+                  <i className='iconfont icon-xuanzhong1'></i>
+                  <span>视频红包可抵扣商品20%</span>
+                </p>
+
+                <p>
+                  <i className='iconfont icon-xuanzhong1'></i>
+                  <span>分期购物</span>
+                </p>
+
+
+
+              </span>
             </div>
 
           </div>

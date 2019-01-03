@@ -45,9 +45,26 @@
         width: .77rem;
       }
       .postage-content{
+        flex: 1;
         .tip-word{
           text-align: left;
         }
+      }
+      &.postage-list{
+
+        height:.9rem;
+        .page-list{
+          
+          .tip-word{
+            display: flex;
+            flex-wrap: wrap;
+            i{
+              color:red;
+
+            }
+          }
+        }
+
       }
 
     }
