@@ -16,11 +16,11 @@ class Index extends Component {
     super(props);
     this.state = {
       indexTab: [
-        { key: 'index', href: "/index", icon: "icon-films", name: '首页' },
-        { key: 'global', href: "/global", icon: "icon-cinemas", name: '极速免税店' },
-        { key: 'muandbaby', href: "/muandbaby", icon: "icon-sales", name: '母婴' },
-        { key: 'luxury', href: "/luxury", icon: "icon-center", name: '轻奢' },
-        { key: 'pop', href: "/pop", icon: "icon-center", name: '名品特' },
+        { key: 'index', href: "/index/i", icon: "icon-films", name: '首页' },
+        { key: 'global', href: "/index/global", icon: "icon-cinemas", name: '极速免税店' },
+        { key: 'muandbaby', href: "/index/muandbaby", icon: "icon-sales", name: '母婴' },
+        { key: 'luxury', href: "/index/luxury", icon: "icon-center", name: '轻奢' },
+        { key: 'pop', href: "/index/pop", icon: "icon-center", name: '名品特' },
       ]
     }
   }
@@ -36,15 +36,17 @@ class Index extends Component {
             <img   src="//f0.jmstatic.com/btstatic/h5/index/search_list2.png" className="search" alt="" />
           </span>
         </div>
+        
         <IndexTab tabs={this.state.indexTab}></IndexTab>
 
         <Switch>
-          <Route path="/index" component={ZIndex}></Route>
-          <Route path="/global" component={ZGlobal}></Route>
-          <Route path="/muandbaby" component={ZMuandbaby}></Route>
-          <Route path="/luxury" component={ZLuxury}></Route>
-          <Route path="/pop" component={ZPop}></Route>
-          <Redirect to="/index"></Redirect>
+          
+          <Route path="/index/global" component={ZGlobal}></Route>
+          <Route path="/index/muandbaby" component={ZMuandbaby}></Route>
+          <Route path="/index/luxury" component={ZLuxury}></Route>
+          <Route path="/index/pop" component={ZPop}></Route>
+          <Route path="/index/i" component={ZIndex}></Route>
+          <Redirect to="/index/i"></Redirect>
         </Switch>
       </div>
     )
