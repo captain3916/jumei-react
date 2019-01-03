@@ -1,3 +1,4 @@
+// 提示信息
 import React, { Component } from 'react'
 
 import './index.scss'
