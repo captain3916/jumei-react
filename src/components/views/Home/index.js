@@ -12,14 +12,12 @@ class Home extends Component {
   render() {
     return (
       <div className='gnd-main'>
-        <div className='gnd-top'>
-          <Switch>
-            <Route path='/shopcard' component={ Shopcard }></Route>
-            <Route path='/yiqituan' component={ Yiqituan }></Route>
-            <Route path='/index' component={ Index }></Route>
-            <Redirect to='/index'></Redirect>
-          </Switch>
-        </div>
+        <Switch>
+          <Route path='/shopcard' component={ Shopcard }></Route>
+          <Route path='/yiqituan' component={ Yiqituan }></Route>
+          <Route path='/index' component={ Index }></Route>
+          <Redirect to='/index'></Redirect>
+        </Switch>
         <div className='gnd-bottom'>
           <TabBar></TabBar>
         </div>
