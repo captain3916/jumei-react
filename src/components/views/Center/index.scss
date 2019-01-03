@@ -6,6 +6,33 @@
   font-size:0.13rem;
   background: #f1f1f1;
 }
+// 后退
+.header{
+  position: absolute;
+  height:0.36rem;
+  line-height: 0.36rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size:0.15rem;
+  color: #fff;
+  .head_back_box{
+    width:0.4rem;
+    text-align: center;
+    .icon-fanhui{
+      font-size:0.18rem;
+      color: #ffffff;
+    }
+  }
+  .head_home{
+    width:0.5rem;
+    text-align: center;
+    .icon-Home{
+      font-size:0.22rem;
+      color: #ffffff;
+    }
+  }
+}
 // 登录注册
 .user_unlogin{
   box-sizing: border-box;
