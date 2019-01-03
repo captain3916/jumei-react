@@ -6,13 +6,23 @@ class Center extends Component {
   render() {
     return (
       <div id="wrapper">
-      {/* 登录 */}
+        {/* 后退 */}
+        <div class="header">
+          <div class="head_back_box">
+            <i className="iconfont icon-fanhui"></i>
+          </div>
+          <div class="head_title">我的聚美</div>
+          <div class="head_home">
+            <i className="iconfont icon-Home"></i>
+          </div>
+        </div>
+        {/* 登录 */}
         <div className="user_unlogin">
           <div className="user_pic"></div>
           <div className="operation">
-            <a className="signup">注册</a>
+            <a href className="signup">注册</a>
             <div className="separator"></div>
-            <a className="login">登录</a>
+            <a href className="login">登录</a>
           </div>
         </div>
         {/* 订单 */}
@@ -20,25 +30,25 @@ class Center extends Component {
           <div className="block_title">
             <i className="iconfont icon-dingdan block_title_icon"></i>
             我的订单
-            <a className="block_title_nav">
+            <a href className="block_title_nav">
               <span>查看我的全部订单</span>
               <i className="iconfont icon-right2"></i>
             </a>
           </div>
           <div className="block_content">
-            <a className="block_item">
+            <a href className="block_item">
               <i className="iconfont icon-daifukuan"></i>
               <span>待付款</span>
             </a>
-            <a className="block_item">
+            <a href className="block_item">
               <i className="iconfont icon-daishouhuo"></i>
               <span>待收货</span>
             </a>
-            <a className="block_item">
+            <a href className="block_item">
               <i className="iconfont icon-pingjia-"></i>
               <span>待评价</span>
             </a>
-            <a className="block_item">
+            <a href className="block_item">
               <i className="iconfont icon-tuihuo"></i>
               <span>退货/退款</span>
             </a>
@@ -51,43 +61,43 @@ class Center extends Component {
             我的资产
           </div>
           <div className="block_content">
-            <a className="block_item">
+            <a href className="block_item">
               <span>现金卷</span>
             </a>
-            <a className="block_item">
+            <a href className="block_item">
               <span>红包</span>
             </a>
-            <a className="block_item">
+            <a href className="block_item">
               <span>聚美余额</span>
             </a>
-            <a className="block_item">
+            <a href className="block_item">
               <span>礼品卡</span>
             </a>
           </div>
         </div>
         {/* 其他菜单 */}
         <div className="list block">
-          <a className="list_item">
+          <a href className="list_item">
             <i className="iconfont icon-service block_title_icon"></i>
             <span>售后服务</span>
             <i className="iconfont icon-right2 arrow_right"></i>
           </a>
-          <a className="list_item">
+          <a href className="list_item">
             <i className="iconfont icon-yijianfankui block_title_icon"></i>
             <span>意见反馈</span>
             <i className="iconfont icon-right2 arrow_right"></i>
           </a>
-          <a className="list_item">
+          <a href className="list_item">
             <i className="iconfont icon-daishouhuo1 block_title_icon"></i>
             <span> 收货地址</span>
             <i className="iconfont icon-right2 arrow_right"></i>
           </a>
-          <a className="list_item">
+          <a href className="list_item">
             <i className="iconfont icon-tuichu block_title_icon"></i>
             <span>退出登录</span>
             <i className="iconfont icon-right2 arrow_right"></i>
           </a>
-          <a className="list_item">
+          <a href className="list_item">
             <i className="iconfont icon-weibiaoti- block_title_icon"></i>
             <span>400-123-8888</span>
             <i className="iconfont icon-right2 arrow_right"></i>
