@@ -27,7 +27,15 @@ class Index extends Component {
   render() {
     return (
       <div className="Index">
-        <div style={{height:'0.45rem',fontSize:'0.13rem',}}>搜索</div>
+        <div className="Zsearch">
+          <div id="page_top" className="index-search" >
+            <img src="//f0.jmstatic.com/btstatic/h5/common/search_btn.png" alt=""/>
+            <span>搜索商品 分类 功效</span>
+          </div>
+          <span id="search_action">
+            <img   src="//f0.jmstatic.com/btstatic/h5/index/search_list2.png" className="search" alt="" />
+          </span>
+        </div>
         <IndexTab tabs={this.state.indexTab}></IndexTab>
 
         <Switch>
