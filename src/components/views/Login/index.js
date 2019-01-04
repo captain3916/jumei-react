@@ -15,7 +15,6 @@ class Login extends Component {
       userPwd: '',
     }
     this.loginAction = this.loginAction.bind(this);
-    console.log(store.getState());
   }
 
   changeUserName(e){
