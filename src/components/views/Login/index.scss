@@ -1,0 +1,107 @@
+*{box-sizing:border-box;}
+#warper{
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  height:4.24rem;
+  .log_header{
+    display:flex;
+    width:100%;
+    height:.44rem;
+    border-bottom:1px solid #808080;
+    a{
+      display:block;
+      width:.44rem;
+      height:100%;
+      font-size:.14rem;
+      text-align:center;
+      line-height:.44rem;
+      color:black;
+      i{
+        display:inline-block;
+        width:7px;
+        height:13px;
+      }
+    }
+    h1{
+      flex:1;
+      text-align:center;
+      font-size:.16rem;
+      font-weight:none;
+      color:black;
+      line-height:.44rem;
+    }
+  }
+  .biaodan{
+    padding:0 10%;
+    width:100%;
+    height:3.0rem;
+    .other-login-outer{
+      height:.58rem;
+      padding:0 10%;
+      .out-login {
+        position:relative;
+        height:.58rem;
+        line-height:.58rem;
+        text-align: center;
+        .out-login-before {
+          border-bottom: solid 1px #f5f5f5;
+          position: absolute;
+          top: .29rem;
+          left: 0;
+          width: 100%;
+          z-index: -1;
+        }
+        .out-title{
+          font-size:0.19rem;
+        }
+      }
+    }
+    .jm_lous{
+      height:.36rem;
+      .lous_input{
+        display:block;
+        width:100%;
+        height:.36rem;
+        border-radius:.18rem;
+        background:#999999;
+        font-size:.14rem;
+      }
+    }
+    .jm_lous2{
+      margin-top:.18rem;
+    }
+    .slider{
+      height:0.52rem;
+      margin-top:.10rem;
+    }
+    .jm_wjmm{
+      padding:0 .05rem;
+      height:.32rem;
+      a{
+        display:inline-block;
+        width:50%;
+        height:.32rem;
+        font-size:.12rem;
+        line-height:.32rem;
+      }
+      a:nth-child(1){
+        color:red;
+      }
+      a:nth-child(2){
+        text-align:right;
+        color:gray;
+      }
+    }
+    .log_button{
+      width:100%;
+      display:inline-block;
+      border-radius:.18rem;
+      margin-top:.12rem;
+      height:.36rem;
+      background:#feb2c5!important;
+      color:white;
+    }
+  }
+  
+}
