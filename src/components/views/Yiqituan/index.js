@@ -11,6 +11,7 @@ import './index.scss';
 class Yiqituan extends Component {
   constructor() {
     super();
+    this.myRef = React.createRef();
     this.state = {
       tabList: [
         {title: '推荐', key: 'coutuan_home'},
@@ -33,19 +34,41 @@ class Yiqituan extends Component {
 
     this.getGoodInfo = this.getGoodInfo.bind(this);
     this.changeTab = this.changeTab.bind(this);
+    this.contOnscroll = this.contOnscroll.bind(this);
   }
 
   //上方标签更改
   changeTab(tab) {
     this.setState((oldState) => ({
       allGoods: [],
-      getInfo: Object.assign(oldState.getInfo, {tab})
+      getInfo: Object.assign(oldState.getInfo, {tab, page: 1})
     }), () => {
       this.getGoodInfo();
     });
 
   }
 
+  // 滚动事件
+  contOnscroll() {
+    const contDOM = this.myRef.current;
+    contDOM.onscroll = () => {
+      const conH = contDOM.offsetHeight; // 容器高度
+      const totalH = contDOM.children[0].offsetHeight; // 里面子元素的高度
+      if (contDOM.scrollTop >= totalH - conH) {
+        this.setState((oldState) => ({
+          getInfo: Object.assign(oldState.getInfo, {page: oldState.getInfo.page + 1 })
+        }), () => {
+            if (this.state.getInfo.page > this.state.getInfo.total_Page) {
+              Toast.info('别拉了,我是有底线的...', 1.5);
+              return;
+            }
+            this.getGoodInfo();
+        })
+      }
+    }
+  }
+
+  // 获取产品信息
   getGoodInfo() {
     Toast.loading('Loading...', 0, () => {
       console.log('Load complete !!!');
@@ -65,6 +88,7 @@ class Yiqituan extends Component {
 
   componentDidMount() {
     this.getGoodInfo();
+    this.contOnscroll();
   }
 
   render() {
@@ -74,12 +98,13 @@ class Yiqituan extends Component {
           <TopBar list={this.state.tabList}
             changeTab={this.changeTab}></TopBar>
         </div>
-        <section className='gnd-yiqituan-product'>
+        <section className='gnd-yiqituan-product'
+          ref={this.myRef}>
           <ul>
             {
-              this.state.allGoods.map((item) => {
+              this.state.allGoods.map((item, index) => {
                 return (
-                  <li key={item.item_id}>
+                  <li key={index}>
                     <Link  to={ '/product/' + item.item_id } className='goods'>
                       <div className='people-number'>{item.buyer_number_text}</div>
                       <div className='goods-topsmall'>
