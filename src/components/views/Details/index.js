@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './index.scss'
+import axios from 'axios'
+import Navbar from './Navbar'
 
 export default class Details extends Component {
   constructor(props) {
@@ -8,20 +10,34 @@ export default class Details extends Component {
     this.state = {
       list: {}
     }
-    // console.log(this.state.list.short_name)
+
   }
 
-  componentDidMount(props) {
-    this.setState({
-      list: this.props.location.state
-    })
+  getOne() {
+    let id = this.props.location.pathname.split('/')[2]
+    let params = {
+      item_id: id
+    }
+    axios.get('http://129.204.109.25:3000/product/getOne', { params }).then((res) => {
+      this.setState({
+        list: res.data.data
+      }, () => {
+        // console.log(this.state.list.image_url_set.dx_image)
+      })
 
-    console.log(this.props.location.state)
+    })
+  }
+  componentDidMount() {
+
+    this.getOne()
+
   }
 
   render() {
     let name = this.state.list.short_name ? this.state.list.short_name : '';
+    let src = this.state.list.image_url_set ? this.state.list.image_url_set.dx_image.url[800] : '';
     return (
+
       <div id='details'>
         <header className='details_top'>
           <i className='iconfont icon-arrow-left'></i>
@@ -29,10 +45,7 @@ export default class Details extends Component {
           <i className='iconfont icon-shouye'></i>
         </header>
         <div className='f-img'>
-
-
-
-          <img src='http://lorempixel.com/375/375/' alt='' />
+          <img src={src} alt='' />
         </div>
         <div className='prod_detail'>
           <div className='price_info'>
@@ -104,8 +117,11 @@ export default class Details extends Component {
 
 
         </div>
-
+        <Navbar list={this.state.list}></Navbar>
       </div>
+
+
+
     )
   }
 }
