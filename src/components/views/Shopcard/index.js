@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 
 // 引入提示组件,默认隐藏none
 import Reminder from '../../component/Reminder/index'
@@ -10,13 +12,13 @@ class Shopcard extends Component {
       <div id="shopCart">
         {/* 后退 */}
         <div className="shopCart_header">
-          <div className="head_back_box">
+          <div className="head_back_box" onClick={() => {this.props.history.go(-1)}}>
             <i className="iconfont icon-fanhui"></i>
           </div>
           <div className="head_title">购物车</div>
-          <div className="head_home">
+          <Link to="/" className="head_home">
             <i className="iconfont icon-Home"></i>
-          </div>
+          </Link>
         </div>
         {/* 无商品状态 */}
         <div className="cart_no_goods">
