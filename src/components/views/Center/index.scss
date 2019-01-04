@@ -36,7 +36,7 @@
 }
 // 登录注册
 .user_unlogin{
-  display: none;
+  display: block;
   box-sizing: border-box;
   padding-top: 0.5rem;
   width: 100%;
@@ -47,9 +47,15 @@
     background:#fff;
     width: 0.6rem;
     height: 0.6rem;
+    line-height: .6rem;
+    text-align: center;
     border-radius: 50%;
     background-size: 0.6rem;
     margin: auto;
+    .icon-user{
+      font-size: 0.32rem;
+      color: #fc5e9f;
+    }
   }
   .operation{
     display: flex;
@@ -78,6 +84,7 @@
 }
 // 已登录
 .wrapper_user{
+  display: none;
   position: relative;
   box-sizing: border-box;
   width: 100%;
@@ -209,6 +216,10 @@
         font-size:0.26rem;
         margin: 0.05rem auto;
         background-size: 0.24rem;
+      }
+      .icon-daishouhuo{
+        font-size:0.24rem;
+        padding-bottom: 0.02rem;
       }
     }
   }
