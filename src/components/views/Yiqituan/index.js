@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-import { GetYiqituanInfo } from '../../../common/API/serverApi'
+import { GetYiqituanInfo } from '../../../common/API/serverApi';
+import { Toast } from 'antd-mobile';
 
 import TopBar from '../../component/TopBar';
 import './index.scss';
@@ -19,7 +20,7 @@ class Yiqituan extends Component {
         {title: '礼品箱包', key: 'coutuan_bag'},
         {title: '鞋类', key: 'coutuan_jewellery'},
         {title: '饰品配饰', key: 'coutuan_shose'},
-        {title: '下期预告', key: 'coutuan_home'},
+        {title: '下期预告', key: 'coutuan_next'},
       ],
       getInfo: {
         tab: 'coutuan_home',
@@ -31,9 +32,24 @@ class Yiqituan extends Component {
     }
 
     this.getGoodInfo = this.getGoodInfo.bind(this);
+    this.changeTab = this.changeTab.bind(this);
+  }
+
+  //上方标签更改
+  changeTab(tab) {
+    this.setState((oldState) => ({
+      allGoods: [],
+      getInfo: Object.assign(oldState.getInfo, {tab})
+    }), () => {
+      this.getGoodInfo();
+    });
+
   }
 
   getGoodInfo() {
+    Toast.loading('Loading...', 0, () => {
+      console.log('Load complete !!!');
+    });
     axios.get(GetYiqituanInfo,{params: this.state.getInfo})
       .then((response) => {
         if (response.data.code === 0) {
@@ -42,6 +58,7 @@ class Yiqituan extends Component {
             allGoods: [...(oldState.allGoods),...response.data.data.list],
             getInfo: Object.assign(oldState.getInfo, {total_Page})
           }))
+          Toast.hide();
         }
       })
   }
@@ -54,7 +71,8 @@ class Yiqituan extends Component {
     return (
       <div className='gnd-yiqituan'>
         <div className='gnd-yiqituan-top'>
-          <TopBar list={this.state.tabList}></TopBar>
+          <TopBar list={this.state.tabList}
+            changeTab={this.changeTab}></TopBar>
         </div>
         <section className='gnd-yiqituan-product'>
           <ul>
