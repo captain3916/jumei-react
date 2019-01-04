@@ -1,6 +1,8 @@
 .settle-wrap{
   font-size: 0.14rem;
   background: #fff;
+  height: calc(100vh - 0.94rem);
+  overflow: auto;
   .settle-header{
     display: flex;
     height: 0.44rem;
