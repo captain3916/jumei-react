@@ -1,14 +1,26 @@
 
+.detailsinfo{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
 #details{
-  
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
   .details_top{
     display: flex;
     height: .44rem;
-    font-size: .2rem;
+    font-size: .15rem;
     justify-content: space-between;
     align-items: center;
     padding: 0 .15rem;
     border-bottom: .01rem solid #eee;
+  }
+  .f-img{
+    overflow: hidden;
   }
   .prod_detail{
     height: .73rem;
@@ -34,6 +46,7 @@
 
   }
   .additional-info{
+    
     height: 1.54rem;
     padding: 0 .1rem;
     .postage-wrap{
@@ -74,3 +87,4 @@
 
 }
 
+}
