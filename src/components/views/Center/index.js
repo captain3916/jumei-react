@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 import './index.scss'
 
@@ -8,21 +9,21 @@ class Center extends Component {
       <div className="wrapper">
         {/* 后退 */}
         <div className="header">
-          <div className="head_back_box">
+          <div className="head_back_box" onClick={() => {this.props.history.go(-1)}}>
             <i className="iconfont icon-fanhui"></i>
           </div>
           <div className="head_title">我的聚美</div>
-          <div className="head_home">
+          <Link to="/" className="head_home">
             <i className="iconfont icon-Home"></i>
-          </div>
+          </Link>
         </div>
         {/* 未登录 */}
         <div className="user_unlogin">
-          <div className="user_pic"></div>
+          <div className="user_pic"><i className="iconfont icon-user"></i></div>
           <div className="operation">
-            <a href="true" className="signup">注册</a>
+            <Link to="/register" className="signup">注册</Link>
             <div className="separator"></div>
-            <a href="true" className="login">登录</a>
+            <Link to="/login" className="login">登录</Link>
           </div>
         </div>
         {/* 已登录 */}
