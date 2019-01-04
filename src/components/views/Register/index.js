@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import axios from 'axios'
 import './index.scss';
 
 class Register extends Component {
@@ -10,12 +10,11 @@ class Register extends Component {
       userName:'',
       userPsw:'',
     }
+    // this.Register = this.Register.bind(this);
   }
-  /* handleChange(key, val) {
-    this.setState({
-        [key]: val
-    })
-  } */
+  Tologin = () => {
+    this.props.history.push('/center')
+  }
   userName = (event) => {
     this.setState({
         userName: event.target.value,
@@ -26,31 +25,41 @@ class Register extends Component {
         userPsw: event.target.value,
     })
   }
+  Register = () => {
+    console.log(this.state.userName);
+    axios.post('http://129.204.109.25:3000/user/register', {
+      
+        userName: this.state.userName,
+        userPsw: this.state.userPsw,
+      
+    }).then((response) => {
+      //筛选出广告数据
+        console.log(response);
+      })
+  }
 
-
+          
   render() {
-    return (
+     return (       
       <div className="register">
         <div className="shopCart_header">
-          
-          <div className="head_back_box">
+          <div className="head_back_box" onClick={ this.Tologin}>
             <i className="iconfont icon-fanhui"></i>
           </div>
-          <div className="head_title ztitle">注册</div>
-          
+          <div className="head_title">注册</div>
           <div className="head_home">
-            <Link to="/login">登录</Link>
+            <Link to="/login">
+              <span>登录</span>
+            </Link>
           </div>
-
         </div>
-        
         <div className="input-box"> 
           <div className="other-login">
             <span className="other-title" >使用手机注册</span>
           </div>
           {/* 输入手机号 */}
           <div className="jm_phone jm">
-            <input type="text" className="register_input" maxLength="11" placeholder="请输入11位手机号" onChange={this.userName}></input>          
+            <input type="text" className="register_input" maxLength="11" value={this.state.userName} placeholder="请输入11位手机号"  onChange={this.userName}></input>          
           </div>
           {/* 输入短信验证码 */}
           <div className="jm_col jm">
@@ -68,11 +77,12 @@ class Register extends Component {
           </div>
           {/* 输入密码 */}
           <div className="jm_pad jm">
-            <input type="password" className="register_input" placeholder="6-16位登录密码" onChange={this.userPsw}></input>
+            <input type="password" className="register_input" placeholder="6-16位登录密码" /* value={this.state.userPsw} */ onChange={this.userPsw}></input>
           </div>
           {/* 登录按钮 */}
-          <button className="jm_button">注册</button>
+          <button className="jm_button" onClick={  this.Register }>注册</button>
         </div>
+
         {/* 底部协议 */}
         <div className="register_agreement jm_center">
           点击注册，表示同意 
@@ -81,8 +91,6 @@ class Register extends Component {
           </a>
         </div>
       </div>
-
-        
 
     )
   }
