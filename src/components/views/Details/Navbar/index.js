@@ -10,7 +10,7 @@ export default class Navbar extends Component {
     let id = this.props.list.item_id
     console.log(id)
     return (
-      <Fragment>
+      <div className='nav_bottom'>
 
         <ul className='f-navbar'>
           <li className='f-left'>
@@ -33,7 +33,7 @@ export default class Navbar extends Component {
         </ul>
 
 
-      </Fragment>
+      </div>
     )
   }
 }
