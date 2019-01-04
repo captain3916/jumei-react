@@ -7,8 +7,22 @@ export default class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: {}
+      list: {},
+      num: 1
     }
+    this.addCart = this.addCart.bind(this)
+    this.reduceCart = this.reduceCart.bind(this)
+  }
+  addCart() {
+
+    this.setState({
+      num: this.state.num + 1
+    })
+  }
+  reduceCart() {
+    this.setState({
+      num: this.state.num === 1 ? 1 : this.state.num - 1
+    })
   }
   getOne() {
     let id = this.props.location.pathname.split('/')[2]
@@ -31,7 +45,10 @@ export default class Cart extends Component {
   }
   render() {
     console.log(this.state.list)
-
+    let list = this.state.list ? this.state.list : {};
+    let price = parseInt(list.jumei_price)
+    let src = this.state.list.image_url_set ? this.state.list.image_url_set.dx_image.url[640] : '';
+    let totalprice = this.state.num * price
 
     return (
       <div id='cart'>
@@ -58,19 +75,35 @@ export default class Cart extends Component {
         </div>
         <div className='group-head'>
           <i className='iconfont icon-shouye'></i>
-          <span class='group-right'>聚美优品发货</span>
+          <span className='group-right'>聚美优品发货</span>
         </div>
         <div className='product-item'>
-          <img src="http://lorempixel.com/60/60" alt="" />
+          <div className='pimg'>
+            <img className='product-img' src={src} alt="" />
+          </div>
           <div className='item_info'>
             <div className='product-info'>
-              <div>123</div>
-              <div>￥124</div>
+              <div>{list.short_name}</div>
+              <div>￥{list.jumei_price}</div>
             </div>
-            <div className='product-count'>111</div>
+            <div className='product-count'>
+              <span>123</span>
+              <span>X{this.state.num}</span>
+            </div>
           </div>
         </div>
-
+        <div className='presale'>
+          <span>购物数量</span>
+          <div className='addcart'>
+            <i className='iconfont icon-jian1' onClick={this.reduceCart}></i>
+            <span>{this.state.num}</span>
+            <i className='iconfont icon-jia1' onClick={this.addCart}></i>
+          </div>
+        </div>
+        <div className='total'>
+          <div>小计</div>
+          <div className='price'>￥{totalprice}</div>
+        </div>
 
       </div>
     )
