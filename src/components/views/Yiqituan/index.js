@@ -27,7 +27,7 @@ class Yiqituan extends Component {
         tab: 'coutuan_home',
         page: 1,
         per_page: 5,
-        total_Page: 0
+        total_Page: 1
       },
       allGoods: []
     }
@@ -51,20 +51,26 @@ class Yiqituan extends Component {
   // 滚动事件
   contOnscroll() {
     const contDOM = this.myRef.current;
-    contDOM.onscroll = () => {
-      const conH = contDOM.offsetHeight; // 容器高度
-      const totalH = contDOM.children[0].offsetHeight; // 里面子元素的高度
-      if (contDOM.scrollTop >= totalH - conH) {
-        this.setState((oldState) => ({
-          getInfo: Object.assign(oldState.getInfo, {page: oldState.getInfo.page + 1 })
-        }), () => {
-            if (this.state.getInfo.page > this.state.getInfo.total_Page) {
-              Toast.info('别拉了,我是有底线的...', 1.5);
-              return;
-            }
-            this.getGoodInfo();
-        })
-      }
+     
+      contDOM.onscroll = () => {
+        if (this.state.getInfo.page > this.state.getInfo.total_Page) {
+          // console.log(this.state.getInfo.total_Page)
+          return;
+        }
+        const conH = contDOM.offsetHeight; // 容器高度
+        const totalH = contDOM.children[0].offsetHeight; // 里面子元素的高度
+        if (contDOM.scrollTop >= totalH - conH) {
+          this.setState((oldState) => ({
+            getInfo: Object.assign(oldState.getInfo, {page: oldState.getInfo.page + 1 })
+          }), () => {
+              if (this.state.getInfo.page > this.state.getInfo.total_Page) {
+                Toast.info('别拉了,我是有底线的...', 1.5);
+                return;
+              }
+              this.getGoodInfo();
+          })
+        }
+      
     }
   }
 
