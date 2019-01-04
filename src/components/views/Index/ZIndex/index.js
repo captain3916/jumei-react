@@ -16,7 +16,8 @@ class ZIndex extends Component {
       fy:{
         page:1,
         type:1,
-      }
+      },
+      pageCount:1,
     };
   }
 
@@ -55,6 +56,7 @@ class ZIndex extends Component {
       // console.log(arr);
         this.setState({
           list:arr,
+          pageCount:response.data.pageCount
         })
         console.log(this.state.list);
     })
@@ -74,7 +76,7 @@ class ZIndex extends Component {
     ulist.map(item => {
       return (
         <li className="deal-item item-each" key={item._id}>
-          <Link to={ '/product/' + item._id }>
+          <Link to={ '/product/' + item.item_id }>
             <div className="product-img">
               <img src={item.image_url_set.dx_image.url[800]} alt="" />
               {/* <img src={ulist[12].image_url_set.dx_image.url[800]} alt="" /> */}
