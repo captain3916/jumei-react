@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
@@ -42,16 +42,16 @@ class ZIndex extends Component {
   }
 
   // 后台数据请求方法
-  axiosClick = () =>  {
-    axios.get('http://129.204.109.25:3000/product/getProduct' , {
-      params:{
-        page:this.state.fy.page,
-        type:this.state.fy.type,
+  axiosClick = () => {
+    axios.get('http://129.204.109.25:3000/product/getProduct', {
+      params: {
+        page: this.state.fy.page,
+        type: this.state.fy.type,
       }
     }).then((response) => {
       //筛选出广告数据
       let arr = response.data.data.filter((item) => {
-        return !item.label 
+        return !item.label
       })
       // console.log(arr);
         this.setState({
@@ -62,7 +62,7 @@ class ZIndex extends Component {
     })
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.axiosClick();
   }
   render() {
@@ -72,7 +72,7 @@ class ZIndex extends Component {
     // console.log(ulist[0]);
 
     // 商品数据遍历
-    let aLI = ulist ? 
+    let aLI = ulist ?
     ulist.map(item => {
       return (
         <li className="deal-item item-each" key={item._id}>
@@ -85,30 +85,29 @@ class ZIndex extends Component {
               <div className="product-title">
                 {item.name}
               </div>
-              <div className="price-wrap">
-                <span className="jumei-price">￥{item.jumei_price}</span>
-                <span className="del-price">￥{item.market_price}</span>
-                <p className="">{item.product_desc}</p>
+                <div className="price-wrap">
+                  <span className="jumei-price">￥{item.jumei_price}</span>
+                  <span className="del-price">￥{item.market_price}</span>
+                  <p className="">{item.product_desc}</p>
+                </div>
               </div>
-            </div>
           </Link>
         </li>
       )
     }) : '';
 
-
-    return ( 
+    return (
       <div className="settle-wrap">
-        
+
         <ul className="settle-header">
-          <li 
-            onClick={() => this.tabClick(1)}  
+          <li
+            onClick={() => this.tabClick(1)}
             // onClick={() => this.listClick(1)}
             className={currentIndex === 1 ? 'active' : ''}>
             今日10点上新
           </li>
-          <li 
-            onClick={() => this.tabClick(2)} 
+          <li
+            onClick={() => this.tabClick(2)}
             // onClick={() => this.listClick(2)}
             className={currentIndex === 2 ? 'active' : ''}>
             明日10点预告
@@ -117,7 +116,7 @@ class ZIndex extends Component {
 
         {/* 商品列表 */}
         <div className={`settle-list ${currentIndex === 1 ? '' : 'hidden'}`}>
-          
+
           <ul>
             {
               aLI
@@ -128,9 +127,9 @@ class ZIndex extends Component {
 
         <div className={`settle-list ${currentIndex === 2 ? '' : 'hidden'}`}>
           <ul>
-              {
-                aLI
-              }
+            {
+              aLI
+            }
           </ul>
         </div>
       </div>
