@@ -31,7 +31,7 @@ export default class Cart extends Component {
   }
   render() {
     console.log(this.state.list)
-    let name = this.state.list.short_name ? this.state.list.short_name : '';
+
 
     return (
       <div id='cart'>
@@ -40,7 +40,36 @@ export default class Cart extends Component {
           <div>结算中心</div>
           <i className='iconfont icon-shouye'></i>
         </header>
-
+        <div className='use_adress'>
+          <i className='iconfont icon-location'></i>
+          <div className='use_adress_info'>
+            <div>
+              <span>收件人: *飞</span>
+              <span>132****3700</span>
+            </div>
+            <div>广东省-深圳市-宝安区-后瑞村西部硅谷</div>
+          </div>
+          <i className='iconfont icon-icon'></i>
+        </div>
+        <div className='time-select-box'>
+          <i className='iconfont icon-dianpu'></i>
+          <span>工作日/双休/节假日均可收货</span>
+          <i className='iconfont icon-icon'></i>
+        </div>
+        <div className='group-head'>
+          <i className='iconfont icon-shouye'></i>
+          <span class='group-right'>聚美优品发货</span>
+        </div>
+        <div className='product-item'>
+          <img src="http://lorempixel.com/60/60" alt="" />
+          <div className='item_info'>
+            <div className='product-info'>
+              <div>123</div>
+              <div>￥124</div>
+            </div>
+            <div className='product-count'>111</div>
+          </div>
+        </div>
 
 
       </div>
