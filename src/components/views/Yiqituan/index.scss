@@ -1,9 +1,112 @@
 .gnd-yiqituan{
+  height: calc(100vh - 0.49rem);
+  display: flex;
+  flex-direction: column;
+  font-size: 0.12rem;
   &-top{
     width: 100vw;
     height: 0.44rem;
     overflow-x: auto;
     overflow-y: hidden;
     color: #424242;
+    border-bottom: 1px solid #ccc;
+  }
+  &-product{
+    color: #424242;
+    overflow-y: scroll;
+    flex: 1;
+    ul{
+      display: block;
+      list-style-type: disc;
+      background: #eee;
+      li{
+        background: #fff;
+        margin-bottom: 0.1rem;
+        a.goods{
+          width: 100%;
+          display: block;
+          overflow: hidden;
+          position: relative;
+          .people-number{
+            position: absolute;
+            left: 0;
+            top: 0.5875rem;
+            z-index: 1;
+            border: 1px solid #eee;
+            border-left: 0;
+            border-top-right-radius: 0.15rem;
+            border-bottom-right-radius: 0.15rem;
+            color: #666;
+            background: rgba(251,251,251,.8);
+            font-size: 0.12rem;
+            padding: 0.04rem 0.07rem;
+          }
+          .goods-topsmall{
+            overflow: hidden;
+            text-align: center;
+            img{
+              margin: 0 auto;
+              height: 1.5rem;
+            }
+          }
+          .goods-middle{
+            color: #424242;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-size: 0.14rem;
+            max-height: 0.34rem;
+            line-height: 0.18rem;
+            padding: 0 0.12rem;
+            margin-top: 0.10rem;
+            .goods-num{
+              color: #fe4070;
+              display: inline-block;
+              margin-left: 0.02rem;
+            }
+          }
+          .goods-foot{
+            padding: 0.12rem;
+            overflow: hidden;
+            .price-left{
+              float: left;
+              .ct-price{
+                color: #fe4070;
+                font-size: 18px;
+              }
+              .sc-price{
+                color: #999;
+                text-decoration: line-through;
+                font-size: 0.12rem;
+                padding-left: 0.04rem;
+              }
+              .jm-price{
+                color: #999;
+                display: block;
+                font-size: 0.12rem;
+              }
+            }
+            .time-right{
+              float: right;
+              border: 1px solid #fe4070;
+              margin-top: .045rem;
+              background: #fe4070;
+              border-radius: 0.25rem;
+              .goods-btn{
+                display: block;
+                height: 0.26rem;
+                line-height: 0.26rem;
+                font-size: 0.14rem;
+                border-radius: 0.25rem;
+                width: 0.88rem;
+                color: #fff;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

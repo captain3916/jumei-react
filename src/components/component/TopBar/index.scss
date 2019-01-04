@@ -1,6 +1,7 @@
 .gnd-topbar{
   width: 180%;
   // width: auto;
+  height: 0.44rem;
   padding: 0 0.125rem;
   white-space: nowrap;
   background: #fff;
@@ -8,20 +9,16 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  position: relative;
-  border-bottom: 1px solid #000;
-  box-sizing: border-box;
   li{
     padding: 0 0.125rem;
     color: #666;
     text-align: center;
-    position: relative;
     font-size: 0.14rem;
     height: 0.44rem;
     span{
       display: block;
-      height: 0.43rem;
-      line-height: 0.43rem;
+      height: 0.44rem;
+      line-height: 0.44rem;
       box-sizing: border-box;
     }
     &.active{

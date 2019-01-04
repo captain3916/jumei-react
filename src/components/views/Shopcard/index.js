@@ -9,12 +9,12 @@ class Shopcard extends Component {
     return (
       <div id="shopCart">
         {/* 后退 */}
-        <div class="header">
-          <div class="head_back_box">
+        <div className="shopCart_header">
+          <div className="head_back_box">
             <i className="iconfont icon-fanhui"></i>
           </div>
-          <div class="head_title">购物车</div>
-          <div class="head_home">
+          <div className="head_title">购物车</div>
+          <div className="head_home">
             <i className="iconfont icon-Home"></i>
           </div>
         </div>
