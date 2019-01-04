@@ -1,0 +1,36 @@
+.f-navbar{
+  height:.5rem;
+  display: flex;
+  text-align: center;
+  
+ 
+  .f-left{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    .f-left-a{
+      flex: 1;
+      display: flex;
+     flex-direction: column;
+    }
+  }
+  .f-cart{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff1f6;
+    color: #fe4070
+  }
+  .f-buy{
+    flex: 1;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fe4070;
+    color:#fff1f6;
+  }
+  
+  
+
+}
