@@ -1,4 +1,3 @@
-*{box-sizing:border-box;}
 #warper{
   display:flex;
   flex-direction:column;
@@ -19,8 +18,8 @@
       color:black;
       i{
         display:inline-block;
-        width:7px;
-        height:13px;
+        width:.7rem;
+        height:.13rem;
       }
     }
     h1{
@@ -34,7 +33,6 @@
   }
   .biaodan{
     padding:0 10%;
-    width:100%;
     height:3.0rem;
     .other-login-outer{
       height:.58rem;
@@ -60,6 +58,8 @@
     .jm_lous{
       height:.36rem;
       .lous_input{
+        box-sizing:border-box;
+        padding:0 0.3rem;
         display:block;
         width:100%;
         height:.36rem;
