@@ -13,7 +13,11 @@
     .f-left-a{
       flex: 1;
       display: flex;
-     flex-direction: column;
+      flex-direction: column;
+      color: #999;
+      span{
+        font-size: .14rem;
+      }
     }
   }
   .f-cart{

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import store from '../../../store/index'
 
 
 // 引入提示组件,默认隐藏none
@@ -7,6 +8,10 @@ import Reminder from '../../component/Reminder/index'
 import './index.scss'
 
 class Shopcard extends Component {
+  constructor() {
+    super();
+    console.log(store.getState().goodsInfo);
+  }
   render() {
     return (
       <div id="shopCart">

@@ -1,7 +1,8 @@
 import { createStore, combineReducers } from 'redux';
 import userInfo from './reduces/userInfo';
+import goodsInfo from './reduces/goodsInfo';
 
 // 2. 调用 createStore 方法返回 一个 仓库的实例对象, 第一个参数需要传递 reudcer
-const store = createStore(combineReducers({userInfo}));
+const store = createStore(combineReducers({userInfo, goodsInfo}));
 
 export default store;
