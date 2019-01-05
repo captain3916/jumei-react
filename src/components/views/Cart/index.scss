@@ -94,4 +94,31 @@ padding: 0 .15rem;
       color: red;
     }
   }
+  .paymoney{
+    display: flex;
+    justify-content: space-between;
+    height: .44rem;
+    align-items: center;
+    .left{
+      .jine{
+        span{
+          color: red;
+        }
+      }
+    }
+    .right{
+      button{
+        width: 1rem;
+        background: #fe4070;
+        color:white;
+        height: .3rem;
+        border-radius: .2rem      ;
+        -webkit-border-radius: .2rem      ;
+        -moz-border-radius: .2rem      ;
+        -ms-border-radius: .2rem      ;
+        -o-border-radius: .2rem      ;
+}
+    }
+  }
+  
 }

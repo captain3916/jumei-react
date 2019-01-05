@@ -32,7 +32,7 @@ export default class Details extends Component {
   }
 
   render() {
-    let name = this.state.list.short_name ? this.state.list.short_name : '';
+    let name = this.state.list ? this.state.list.short_name : '';
     let src = this.state.list.image_url_set ? this.state.list.image_url_set.dx_image.url[800] : '';
     return (
       <div className='detailsinfo'>
@@ -40,10 +40,10 @@ export default class Details extends Component {
         <div id='details'>
           <header className='details_top'>
             <i className='iconfont icon-arrow-left'
-              onClick={()=>{ this.props.history.go(-1) }}></i>
+              onClick={() => { this.props.history.go(-1) }}></i>
             <div>{name}</div>
             <i className='iconfont icon-shouye'
-              onClick={()=>{ this.props.history.push('/') }}></i>
+              onClick={() => { this.props.history.push('/') }}></i>
           </header>
           <div className='f-img'>
             <img src={src} alt='' />
@@ -121,7 +121,8 @@ export default class Details extends Component {
 
 
         </div>
-        <Navbar list={this.state.list}></Navbar>
+        <Navbar list={this.state.list} history={this.props.history}></Navbar>
+
 
       </div>
     )
