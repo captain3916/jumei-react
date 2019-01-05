@@ -1,9 +1,43 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import store from '../../../store/index';
 
 import './index.scss'
 
 class Center extends Component {
+  constructor(props){
+    super(props);
+    console.log(store.getState().userInfo.isLogin);
+    console.log(store.getState().userInfo.userName);
+    this.state = {
+      // isLogin:store.getState(),
+      userName:store.getState().userInfo.userName,
+      isLogin:store.getState().userInfo.isLogin
+    }
+  }
+  componentDidMount() {
+    // state状态需要监听
+    this.subscribe = store.subscribe(() => {
+      this.setState({
+        userName:store.getState().userInfo.userName,
+        isLogin:store.getState().userInfo.isLogin
+      })
+    })
+  }
+
+  componentWillUnmount() {
+    this.subscribe();
+  }
+  // 使用箭头函数改变thi指向
+  outLogin = (e) => {
+    e.preventDefault();
+    // this.setState()
+    localStorage.removeItem("jumei_userName");
+    store.dispatch({type: 'SETUSERNAME', data: ''});
+    store.dispatch({type: 'SETISLOGIN', data: false});
+    // this.props.history.push('/center');
+  } 
+
   render() {
     return (
       <div className="wrapper">
@@ -18,7 +52,7 @@ class Center extends Component {
           </Link>
         </div>
         {/* 未登录 */}
-        <div className="user_unlogin">
+        <div className="user_unlogin" style={{display: (this.state.isLogin===true) ? "none" : "block"}}>
           <div className="user_pic"><i className="iconfont icon-user"></i></div>
           <div className="operation">
             <Link to="/register" className="signup">注册</Link>
@@ -27,11 +61,11 @@ class Center extends Component {
           </div>
         </div>
         {/* 已登录 */}
-        <div className="wrapper_user">
+        <div className="wrapper_user" style={{display: (this.state.isLogin===true) ?  "block" : "none"}}>
           <img src="./images/user_pic.png" alt="" className="photo"/>
           <div className="user_bg">
             <div className="user_info">
-              <span className="name">JM1GreijgDGN1</span>
+              <span className="name">{this.state.userName}</span>
               <span className="grade">普通会员</span>
             </div>
           </div>
@@ -117,7 +151,7 @@ class Center extends Component {
             <span> 收货地址</span>
             <i className="iconfont icon-right2 arrow_right"></i>
           </a>
-          <a href="true" className="list_item">
+          <a href="false" className="list_item" onClick={this.outLogin} style={{display: (this.state.isLogin===true) ?  "block" : "none"}}>
             <i className="iconfont icon-tuichu block_title_icon"></i>
             <span>退出登录</span>
             <i className="iconfont icon-right2 arrow_right"></i>
@@ -132,7 +166,7 @@ class Center extends Component {
         <div className="hint">
           客服热线400-123-8888 (8:00-22:00)
           <br/>
-          拨打前请记录您的UID <span></span>
+          拨打前请记录您的UID<span> {this.state.userName}</span>
         </div>
       </div>
     )
