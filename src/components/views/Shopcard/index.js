@@ -12,6 +12,7 @@ import './index.scss'
 class Shopcard extends Component {
   constructor() {
     super();
+    console.log(store.getState().goodsInfo)
     this.state = {
       goods: store.getState().goodsInfo
     }
@@ -58,7 +59,9 @@ class Shopcard extends Component {
       }},
     ])
   }
-
+  goShoping = (e) => {
+    this.props.history.push('/')
+  }
   render() {
 
     // <div>
@@ -93,13 +96,13 @@ class Shopcard extends Component {
           </Link>
         </div>
         {/* 无商品状态 */}
-        <div className="cart_no_goods">
+        <div className="cart_no_goods" style={{display: (this.state.goods.length===0) ? "flex" : "none"}}>
           <div className="oops"></div>
           <div className="empty_cart">您的购物车中没有商品，请先去挑选心爱的商品吧！</div>
-          <div className="go_stroll">去逛逛</div>
+          <div className="go_stroll" onClick={this.goShoping}>去逛逛</div>
         </div>
         {/* 有商品状态 */}
-        <div className="shop_list">
+        <div className="shop_list" style={{display: (this.state.goods.length===0) ? "none" : "block"}}>
           <div className="count_down">
             <i className="iconfont icon-shijian"></i>
             <div className="timer_text">14:49.3</div>
