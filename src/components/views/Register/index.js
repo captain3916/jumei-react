@@ -78,14 +78,14 @@ class Register extends Component {
             <span>验证</span>
           </div>
           {/* 输入右图验证吗 */}
-          <div className="mobile_verify_code jm">
+          {/* <div className="mobile_verify_code jm">
             <input type="text" className="register_input" placeholder="请按右图输入" disabled="value"></input>
 
             <div className="jm_img">
               <img scr={require('./images/yzm.gif')}  alt="" />
             </div>
 
-          </div>
+          </div> */}
           {/* 输入密码 */}
           <div className="jm_pad jm">
             <input type="password" className="register_input" placeholder="6-16位登录密码" /* value={this.state.userPsw} */ onChange={this.userPsw}></input>
