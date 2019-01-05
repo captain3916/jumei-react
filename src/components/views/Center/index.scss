@@ -36,7 +36,6 @@
 }
 // 登录注册
 .user_unlogin{
-  display: block;
   box-sizing: border-box;
   padding-top: 0.5rem;
   width: 100%;
@@ -84,7 +83,6 @@
 }
 // 已登录
 .wrapper_user{
-  display: none;
   position: relative;
   box-sizing: border-box;
   width: 100%;
