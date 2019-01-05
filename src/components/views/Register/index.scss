@@ -1,3 +1,7 @@
+.register{
+  height: 100%;
+  background: #fff;
+}
 .shopCart_header{
   height:0.45rem;
   line-height: 0.45rem;
@@ -15,6 +19,9 @@
       color: #b4b4b4;
     }
   }
+  .head_title{
+    color: #666;
+  }
   .head_home{
     width:0.5rem;
     text-align: center;
@@ -23,7 +30,7 @@
       color: #b4b4b4;
     }
     a{
-      font-size:0.18rem;
+      font-size:0.15rem;
       color: #333;
     }
   }
@@ -73,7 +80,7 @@
     background: #ffffff;
     border: 1px solid #feb2c5;
     border-radius: 0.2rem;
-    width: 0.89rem;
+    width: 89px;
     height: 0.35rem;
     font-size: 0.14rem;
     color: #feb2c5;

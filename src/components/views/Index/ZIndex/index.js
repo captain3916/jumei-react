@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import { Toast } from 'antd-mobile';
-
+import IndexTab from '../IndexTab';
 import './index.scss';
 
 class ZIndex extends Component {
@@ -15,12 +15,13 @@ class ZIndex extends Component {
       tab: {
         current_index: 1,
       },
-      list:[ ],
+      list:[],
       fy:{
         page:1,
         type:1,
+        
       },
-      pageCount:1,
+      pageCount:'',
     };
   }
 
@@ -28,15 +29,22 @@ class ZIndex extends Component {
   tabClick = (num) => {
     this.setState({
       // 切换
-      tab: Object.assign(this.state.tab, {current_index: num,},
+      tab: Object.assign(
+        this.state.tab, {
+          current_index: num,
+          
+        },
       ),
       // 数据切换加载
       fy: Object.assign(
         this.state.fy, {
           type: num,
+          page:1,
         },
       ),
+      list:[],
     });
+    
     // 数据重新请求
     this.axiosClick();
   }
@@ -45,26 +53,31 @@ class ZIndex extends Component {
 // 滚动事件
   contOnscroll = () => {
     const contDOM = this.myRef.current;
-    console.log(contDOM);
-    // contDOM.onscroll = () => {
-    //   if (this.state.fy.page > this.state.pageCount) {
-    //     console.log(this.state.pageCount)
-    //     return;
-    //   }
-    //   const conH = contDOM.offsetHeight; // 容器高度
-    //   const totalH = contDOM.children[0].offsetHeight; // 里面子元素的高度
-    //   if (contDOM.scrollTop >= totalH - conH) {
-    //     this.setState((oldState) => ({
-    //       getInfo: Object.assign(oldState.fy, {page: oldState.fy.page + 1 })
-    //     }), () => {
-    //         if (this.state.fy.page > this.state.pageCount) {
-    //           Toast.info('别拉了,我是有底线的...', 1.5);
-    //           return;
-    //         }
-    //         this.axiosClick();
-    //     })
-    //   }
-    
+    let istrue = true;
+    contDOM.onscroll = () => {
+      if (this.state.fy.page > this.state.pageCount) {
+        return;
+      }
+      const conH = contDOM.offsetHeight; // 容器高度
+      const totalH = contDOM.children[3].offsetHeight; // 里面子元素的高度
+
+      if (contDOM.scrollTop >= totalH - conH && istrue) {
+
+        istrue = false;
+        this.setState((oldState) => ({
+          fy: Object.assign(oldState.fy, {page: oldState.fy.page + 1 })
+        }), () => {
+            if (this.state.fy.page > this.state.pageCount) {
+              Toast.info('别拉了,我是有底线的...', 1.5);
+              return;
+            }
+          this.axiosClick();
+        })
+        setTimeout( () => {
+          this.contOnscroll()
+        },100)
+      }
+    }
   }
     
 
@@ -79,18 +92,18 @@ class ZIndex extends Component {
       params: {
         page: this.state.fy.page,
         type: this.state.fy.type,
+        pageSize: 5,
       }
     }).then((response) => {
       //筛选出广告数据
-      let arr = response.data.data.filter((item) => {
-        return !item.label
-      })
-      // console.log(response.data);
-        this.setState({
-          list:arr,
-          pageCount:response.data.pageCount
-        })
+      if(response.data.code === 0){
+        // console.log(response.data.data);
+        this.setState((oldState) => ({
+          list: [...(oldState.list),...response.data.data],
+          pageCount:response.data.pageCount,
+        }))
         Toast.hide();
+      }
     })
   }
 
@@ -106,12 +119,14 @@ class ZIndex extends Component {
 
     // 商品数据遍历
     let aLI = ulist ?
-    ulist.map(item => {
+    ulist.map((item,index) => {
       return (
-        <li className="deal-item item-each" key={item._id}>
+
+        <li className="deal-item item-each" key={index}>
           <Link to={ '/product/' + item.item_id }>
             <div className="product-img">
               <img src={item.image_url_set.dx_image.url[800]} alt="" />
+              {/* <img src={ulist[0].image_url_set.dx_image.url[800]} alt="" /> */}
             </div>
             <div className="product-detail">
               <div className="product-title">
@@ -130,6 +145,21 @@ class ZIndex extends Component {
 
     return (
       <div className="settle-wrap" ref={this.myRef}>
+        
+        <div className="Zsearch">
+          <Link to="/search">
+            <div id="page_top" className="index-search" >
+              <img src="//f0.jmstatic.com/btstatic/h5/common/search_btn.png" alt=""/>
+              <span>搜索商品 分类 功效</span>
+            </div>
+            <span id="search_action">
+              <img   src="//f0.jmstatic.com/btstatic/h5/index/search_list2.png" className="search" alt="" />
+            </span>
+          </Link>
+        </div>
+
+        <IndexTab ></IndexTab>
+
 
         <ul className="settle-header">
           <li
