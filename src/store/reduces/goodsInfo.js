@@ -17,6 +17,7 @@ export default function goodsInfo(state = defaultState, action) {
                     goods_name: action.data.goods_name,
                     goods_num: 1,
                     goods_price: action.data.goods_price,
+                    goods_img: action.data.goods_img,
                 });
             } else {
                 newState[index].goods_num += 1;
@@ -25,7 +26,7 @@ export default function goodsInfo(state = defaultState, action) {
             localStorage.setItem('jm_shopCard', JSON.stringify(newState));
             return newState;
 
-        // 减少商品  
+        // 减少商品
         case 'REDUCEGOOD':
             const id = action.data.goods_id;
             let red_index = -1;
@@ -42,8 +43,17 @@ export default function goodsInfo(state = defaultState, action) {
             // 写入localStorage
             localStorage.setItem('jm_shopCard', JSON.stringify(newState));
             return newState;
-        
-        // 清空购物车 
+        case 'DELETE_ONE':
+            let delete_id = action.data.id;
+            let delete_index = -1;
+            newState.forEach((item, i) => {
+                if (item.goods_id === delete_id) delete_index = i;
+            });
+            if (red_index !== -1) {
+                newState.splice(delete_index, 1);
+            }
+            return newState;
+        // 清空购物车
         case 'CLEARSHOPCARD':
             localStorage.removeItem('jm_shopCard');
             return newState;
