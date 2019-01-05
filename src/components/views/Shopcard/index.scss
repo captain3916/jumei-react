@@ -35,13 +35,13 @@
   // 无商品提示
   .cart_no_goods{
     flex: 1;
+    padding-bottom: 0.49rem;
     align-items: center;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #fff;
-    display: none;
+    // display: none;
     .oops{
       width: 0.8rem;
       height: 0.8rem;
