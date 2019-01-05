@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import './index.scss'
+import store from '@/store/index.js'
 
 export default class Cart extends Component {
 
@@ -14,7 +15,7 @@ export default class Cart extends Component {
     this.reduceCart = this.reduceCart.bind(this)
   }
   addCart() {
-
+    console.log(store.getState())
     this.setState({
       num: this.state.num + 1
     })
@@ -103,6 +104,20 @@ export default class Cart extends Component {
         <div className='total'>
           <div>小计</div>
           <div className='price'>￥{totalprice}</div>
+        </div>
+        <div className='paymoney'>
+          <div className='left'>
+            <div className='jine'>
+              合计
+             <span>￥{totalprice}</span>
+            </div>
+            <div>
+              共 {this.state.num} 件商品
+            </div>
+          </div>
+          <div className='right'>
+            <button>支付</button>
+          </div>
         </div>
 
       </div>

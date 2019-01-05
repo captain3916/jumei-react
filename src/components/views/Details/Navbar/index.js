@@ -10,7 +10,9 @@ export default class Navbar extends Component {
 
   // 加入购物车
   addGood = () => {
-    console.log(store.getState());
+    // console.log(store.getState());
+
+
     store.dispatch({
       type: 'ADDGOOD',
       data: {
@@ -20,11 +22,33 @@ export default class Navbar extends Component {
         goods_img: this.props.list.image_url_set.dx_image.url[800],
       }
     })
-    Toast.info('加入成功！',1.5);
+    Toast.info('加入成功！', 1.5);
+  }
+  toCart = () => {
+    let id = this.props.list.item_id;
+    let islongin = store.getState();
+    let login = islongin.userInfo.isLogin;
+    console.log(login)
+    if (login) {
+      this.props.history.push({
+        pathname: `/cart/${id}`
+      })
+
+    } else {
+      console.log(2)
+      console.log(this.props)
+      this.props.history.push({
+        pathname: '/login'
+      })
+    }
+
+
+
   }
 
+
   render() {
-    let id = this.props.list.item_id;
+
     return (
       <div className='nav_bottom'>
         <ul className='f-navbar'>
@@ -40,10 +64,10 @@ export default class Navbar extends Component {
 
           </li>
           <li className='f-cart'
-            onClick = { this.addGood }>加入购物车</li>
-          <Link to={`/cart/${id}`} className='f-buy'>
-            <li>立刻购买</li>
-          </Link>
+            onClick={this.addGood}>加入购物车</li>
+          {/* <Link to={{ login } === false ? `/cart/${id}` : '/login'} className='f-buy' ></Link> */}
+          <li className='f-buy' onClick={this.toCart}>立刻购买</li>
+
         </ul>
 
       </div>
