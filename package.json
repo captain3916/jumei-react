@@ -31,5 +31,6 @@
     "babel-plugin-import": "^1.11.0",
     "node-sass": "^4.11.0",
     "react-app-rewired": "^1.6.2"
-  }
+  },
+  "homepage": "./"
 }
