@@ -1,0 +1,36 @@
+.Z-header{
+  height:0.45rem;
+  line-height: 0.45rem;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom:0.01rem solid #eee;
+  background: #fff;
+  font-size:0.15rem;
+  .head_back_box{
+    width:0.4rem;
+    text-align: center;
+    .icon-fanhui{
+      font-size:0.18rem;
+      color: #b4b4b4;
+    }
+  }
+  .head_title{
+    color: #666;
+  }
+  .head_home{
+    width:0.5rem;
+    text-align: center;
+    .icon-Home{
+      font-size:0.22rem;
+      color: #b4b4b4;
+    }
+    a{
+      font-size:0.15rem;
+      color: #333;
+    }
+  }
+  .ztitle{
+    color: #666;
+  }
+}

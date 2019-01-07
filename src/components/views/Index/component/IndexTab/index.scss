@@ -1,0 +1,36 @@
+.Tba{
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-base-color:#fff;
+  position: sticky;
+    z-index: 999;
+    top: 0;
+}
+.Tba::-webkit-scrollbar {
+  display: none;
+}
+.index-bar{
+  width: 3.92rem;
+  height: 0.44rem;
+  background: #fff;
+  &-item{
+    // flex: 1;
+    float: left;
+    line-height: 0.44rem;
+    font-size: 0.14rem;
+    text-align: center;
+    padding: 0 0.175rem;
+    a{
+      color: #666;
+      padding: 0 0.02rem;
+      &.active {
+        display: block;
+        height: 0.44rem;
+        line-height: 0.44rem;
+        box-sizing: border-box;
+        color: #ff5f16;
+        border-bottom: 3px solid #fe4070;
+      }
+    }
+  }
+}

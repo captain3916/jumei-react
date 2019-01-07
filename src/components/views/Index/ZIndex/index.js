@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import axios from 'axios';
-
 import { Toast } from 'antd-mobile';
-import IndexTab from '../IndexTab';
+
+import IndexTab from '../component/IndexTab';
+import Search from '../component/Search';
 import './index.scss';
 
 class ZIndex extends Component {
@@ -19,7 +20,6 @@ class ZIndex extends Component {
       fy:{
         page:1,
         type:1,
-        
       },
       pageCount:'',
     };
@@ -59,11 +59,12 @@ class ZIndex extends Component {
         return;
       }
       const conH = contDOM.offsetHeight; // 容器高度
-      const totalH = contDOM.children[3].offsetHeight; // 里面子元素的高度
-
+      
+      // 里面子元素的高度
       const tota0 = contDOM.children[0].offsetHeight;
       const tota1 = contDOM.children[1].offsetHeight;
       const tota2 = contDOM.children[2].offsetHeight;
+      const totalH = contDOM.children[3].offsetHeight;
 
       if (contDOM.scrollTop >= totalH - conH + tota0 +  tota1 + tota2  && istrue) {
 
@@ -148,21 +149,9 @@ class ZIndex extends Component {
     return (
       <div className="settle-wrap" ref={this.myRef}>
         
-        <div className="Zsearch">
-          <Link to="/search">
-            <div id="page_top" className="index-search" >
-              <img src="//f0.jmstatic.com/btstatic/h5/common/search_btn.png" alt=""/>
-              <span>搜索商品 分类 功效</span>
-            </div>
-            <span id="search_action">
-              <img   src="//f0.jmstatic.com/btstatic/h5/index/search_list2.png" className="search" alt="" />
-            </span>
-          </Link>
-        </div>
-
+        <Search></Search>
         <IndexTab ></IndexTab>
-
-
+        
         <ul className="settle-header">
           <li
             onClick={() => this.tabClick(1)}
@@ -177,15 +166,11 @@ class ZIndex extends Component {
         </ul>
 
         {/* 商品列表 */}
-        {/* <div className={`settle-list ${currentIndex === 1 ? '' : 'hidden'}`}> */}
         <div className="settle-list">
           <ul>{ aLI }</ul>
           <div className="zw"></div>
         </div>
-
-        {/* <div className={`settle-list ${currentIndex === 2 ? '' : 'hidden'}`}>
-          <ul>{ aLI }</ul>
-        </div> */}
+        
       </div>
     )
   }

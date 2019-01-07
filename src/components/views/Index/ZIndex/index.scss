@@ -4,6 +4,7 @@
   // height: calc(100vh - 0.93rem);
   height: 100%;
   overflow: auto;
+  
   .settle-header{
     display: flex;
     height: 0.44rem;
@@ -22,7 +23,7 @@
     display: none;
   }
   .settle-list {
-    background: #eee;
+    background: #f5f5f5;
     .item-each{
       height: 1.3rem;
       margin-bottom: 0.08rem;
@@ -30,7 +31,7 @@
         
         height: 100%;
         margin: 0 auto;
-       display: block
+        display: block
       }
     }
     .deal-item{
@@ -49,9 +50,9 @@
       .product-detail{
         position: absolute;
         top: 0;
-        right: 0.15rem;
         height: 100%;
-        width: 2.03rem;
+        left: 1.45rem;
+        right: 0.15rem;
         .product-title{
           font-size: 0.13rem;
           margin-top: 0.12rem;

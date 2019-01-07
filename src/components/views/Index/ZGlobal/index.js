@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-// import { NavBar, Icon } from 'antd-mobile';
-import IndexTab from '../IndexTab';
-import './index.scss';
+
+import Header from '../component/Header';
+import Search from '../component/Search';
+import IndexTab from '../component/IndexTab';
 
 export default class ZGlobal extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      MyText : '极速免税店'
+    }
+  }
+
   render() {
     return (
-      <div>
-        <IndexTab></IndexTab>
+      <div className ="global">
+        <Header tabs = {this.state.MyText} history={this.props.history}></Header>
+        <Search></Search>
+        <IndexTab ></IndexTab>
         极速免税店
-        {/* <NavBar
-          mode="light"
-          icon={<Icon type="left" />}
-          onLeftClick={() => console.log('onLeftClick')}
-          rightContent={[
-            <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-          ]}
-          >NavBar
-        </NavBar> */}
-
       </div>
     )
   }

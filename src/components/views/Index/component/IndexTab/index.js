@@ -19,6 +19,7 @@ import './index.scss';
   render() {
     let tabs = this.state.indexTab;
     return (
+      <div className="Tba">
       <ul className="index-bar">
         {
           tabs.map(item => {
@@ -26,13 +27,14 @@ import './index.scss';
               <li className="index-bar-item" key={item.key}>
                 <NavLink to={item.href}>
                   <span>{item.name}</span>
-                  <span className="hx"></span>
+                  {/* <span className="hx"></span> */}
                 </NavLink>
               </li>
             )
           })
         }
       </ul>
+      </div>
     )
   }
 }
