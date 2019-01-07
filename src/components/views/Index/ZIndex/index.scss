@@ -22,6 +22,7 @@
     display: none;
   }
   .settle-list {
+    background: #eee;
     .item-each{
       height: 1.3rem;
       margin-bottom: 0.08rem;
@@ -73,12 +74,8 @@
         }
       }
     }
+    .zw{height: 0.2rem;}
   }
   
 }
 
-.liii{
-  height: 100px;
-  background: pink;
-  margin-bottom: 10px;
-}

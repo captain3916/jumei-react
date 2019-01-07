@@ -61,7 +61,11 @@ class ZIndex extends Component {
       const conH = contDOM.offsetHeight; // 容器高度
       const totalH = contDOM.children[3].offsetHeight; // 里面子元素的高度
 
-      if (contDOM.scrollTop >= totalH - conH && istrue) {
+      const tota0 = contDOM.children[0].offsetHeight;
+      const tota1 = contDOM.children[1].offsetHeight;
+      const tota2 = contDOM.children[2].offsetHeight;
+
+      if (contDOM.scrollTop >= totalH - conH + tota0 +  tota1 + tota2  && istrue) {
 
         istrue = false;
         this.setState((oldState) => ({
@@ -80,8 +84,6 @@ class ZIndex extends Component {
     }
   }
     
-
-
 
   // 后台数据请求
   axiosClick = () => {
@@ -164,26 +166,26 @@ class ZIndex extends Component {
         <ul className="settle-header">
           <li
             onClick={() => this.tabClick(1)}
-            // onClick={() => this.listClick(1)}
             className={currentIndex === 1 ? 'active' : ''}>
             今日10点上新
           </li>
           <li
             onClick={() => this.tabClick(2)}
-            // onClick={() => this.listClick(2)}
             className={currentIndex === 2 ? 'active' : ''}>
             明日10点预告
           </li>
         </ul>
 
         {/* 商品列表 */}
-        <div className={`settle-list ${currentIndex === 1 ? '' : 'hidden'}`}>
+        {/* <div className={`settle-list ${currentIndex === 1 ? '' : 'hidden'}`}> */}
+        <div className="settle-list">
           <ul>{ aLI }</ul>
+          <div className="zw"></div>
         </div>
 
-        <div className={`settle-list ${currentIndex === 2 ? '' : 'hidden'}`}>
+        {/* <div className={`settle-list ${currentIndex === 2 ? '' : 'hidden'}`}>
           <ul>{ aLI }</ul>
-        </div>
+        </div> */}
       </div>
     )
   }
