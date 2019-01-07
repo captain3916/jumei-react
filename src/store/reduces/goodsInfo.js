@@ -44,14 +44,15 @@ export default function goodsInfo(state = defaultState, action) {
             localStorage.setItem('jm_shopCard', JSON.stringify(newState));
             return newState;
         case 'DELETE_ONE':
-            let delete_id = action.data.id;
             let delete_index = -1;
             newState.forEach((item, i) => {
-                if (item.goods_id === delete_id) delete_index = i;
+                if (item.goods_id === action.data) delete_index = i;
             });
-            if (red_index !== -1) {
+            if (delete_index !== -1) {
                 newState.splice(delete_index, 1);
             }
+            // 写入localStorage
+            localStorage.setItem('jm_shopCard', JSON.stringify(newState));
             return newState;
         // 清空购物车
         case 'CLEARSHOPCARD':

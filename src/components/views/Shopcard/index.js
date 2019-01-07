@@ -12,16 +12,23 @@ import './index.scss'
 class Shopcard extends Component {
   constructor() {
     super();
-    console.log(store.getState().goodsInfo)
+    const goods = store.getState().goodsInfo.map(item => {
+      item.ischecked = true;
+      return item;
+    })
     this.state = {
-      goods: store.getState().goodsInfo
+      goods,
     }
   }
 
   componentDidMount() {
     this.subscribe = store.subscribe(() => {
+      const goods = store.getState().goodsInfo.map(item => {
+        item.ischecked = true;
+        return item;
+      })
       this.setState({
-        goods: [...store.getState().goodsInfo]
+        goods,
       })
     })
   }
@@ -62,25 +69,38 @@ class Shopcard extends Component {
   goShoping = (e) => {
     this.props.history.push('/')
   }
+
+  // 切换某条商品是否为选择状态
+  itemCheck = (index) => {
+    this.setState((oldState) => {
+      oldState.goods[index].ischecked = !oldState.goods[index].ischecked;
+      return oldState;
+    });
+  }
+
+  // 点击全选按钮
+  allChecked = (isAllChecked) => {
+    this.setState((oldState) => {
+      oldState.goods.forEach(item => {
+        item.ischecked = !isAllChecked;
+      })
+      return oldState;
+    });
+  }
+
   render() {
 
-    // <div>
-    //   <span className="check_box_checked"><i className="iconfont icon-weigouxuan"></i></span>
-    //   <div className="item_content">
-    //     <div className="img_wrap">
-    //       <img src="https://p2.jmstatic.com/product/000/647/647333_std/647333_200_200.jpg" alt="御泥坊亮采金桂花眼膜贴60片"/>
-    //     </div>
-    //     <div className="text_wrap">
-    //       <div className="title"><span className="title">御御泥坊亮采金桂花眼膜贴60片片</span></div>
-    //       <div className="sub_title">
-    //         <span>60片x30</span>
-    //         <div className="sun"><span className="jia"><i className="iconfont icon-jian"></i></span><span>x1</span><span className="jian"><i className="iconfont icon-jia"></i></span></div>
-    //       </div>
-    //       <div className="price_edit"><span className="price red">¥59.9</span><span className="delete">删除</span></div>
-    //     </div>
-    //   </div>
-    // </div>
-
+    let isAllChecked = true; // 是否已经全部选择状态
+    let checkedNum = 0;  // 选中的数量
+    let checkedAllPrice = 0; // 选中的总价
+    this.state.goods.forEach(item => {
+      if (!item.ischecked) {
+        isAllChecked = false;
+      } else {
+        checkedNum += item.goods_num;
+        checkedAllPrice += (+item.goods_price) * item.goods_num;
+      }
+    })
 
 
     return (
@@ -112,7 +132,10 @@ class Shopcard extends Component {
             <div className="group">
               {/* 1 */}
               <div className="group_header">
-                <span className="check_box_checked"><i className="iconfont icon-weigouxuan"></i></span>
+                <span className="check_box_checked">
+                  <i className={`iconfont ${isAllChecked ? 'icon-gouxuan1':'icon-weigouxuan'}`}
+                    onClick={()=>{this.allChecked(isAllChecked)}}></i>
+                </span>
                 <div className="group_title">聚美优品发货</div>
               </div>
               {/* 2 产品盒子*/}
@@ -125,7 +148,10 @@ class Shopcard extends Component {
                     return (
                       <div className="item" key={index}>
                         {/* 勾选按钮 */}
-                        <span className="check_box_checked"><i className="iconfont icon-weigouxuan"></i></span>
+                        <span className="check_box_checked">
+                          <i className={`iconfont ${item.ischecked ? 'icon-gouxuan1':'icon-weigouxuan'}`}
+                            onClick={()=>{this.itemCheck(index)}}></i>
+                        </span>
                         <div className="item_content">
                           {/* 缩略图 */}
                           <div className="img_wrap">
@@ -143,7 +169,7 @@ class Shopcard extends Component {
                               </div>
                             </div>
                             <div className="price_edit">
-                              <span className="price red">￥{item.goods_price}</span>
+                              <span className="price red">￥{+item.goods_price * item.goods_num }</span>
                               <span className="delete" onClick={ () => { this.deleteOne(item.goods_id) } }>删除</span>
                             </div>
                           </div>
@@ -164,16 +190,19 @@ class Shopcard extends Component {
           {/* 结算按钮 */}
           <div className="submit_bottom">
             <div className="sub_info">
-              <span className="check_box_checked"><i className="iconfont icon-gouxuan1"></i></span>
+              <span className="check_box_checked">
+                <i className={`iconfont ${isAllChecked ? 'icon-gouxuan1':'icon-weigouxuan'}`}
+                  onClick={()=>{this.allChecked(isAllChecked)}}></i>
+              </span>
               <span className="all_check_text">全选</span>
               <div className="summary">
                 <span>合计</span>
-                <span className="red">¥59.9</span>
+                <span className="red">¥{checkedAllPrice}</span>
               </div>
             </div>
             <div className="submit_btn go_to_submit">
               去结算
-              <span>(2)</span>
+              <span>({checkedNum})</span>
             </div>
           </div>
         </div>
