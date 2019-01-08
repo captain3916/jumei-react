@@ -1,0 +1,45 @@
+.Zli{
+  background: #fff;
+}
+.aaa::after{
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0;
+}
+
+.list-img{
+  height: 1.83rem;
+  img{
+    width: 100%;
+  }
+}
+.list-info{
+  padding: 0.15rem;
+  float: left;
+  h1{
+    color: #333;
+    font-size: 0.14rem;
+    flex-wrap: 400;
+    margin-bottom: 0.05rem;
+  }
+  .list-countdown{
+    color: #999;
+    height: 0.12rem;
+    line-height: 0.12rem;
+    vertical-align: middle;
+    font-size: 0.12rem;
+  }
+}
+.list-logo{
+    float: right;
+    padding-top: 0.11rem;
+    padding-right: 0.18rem;
+    width: 0.91rem;
+    height: 0.47rem;
+    overflow: hidden;
+    img{
+      width: 100%;
+    }
+}
